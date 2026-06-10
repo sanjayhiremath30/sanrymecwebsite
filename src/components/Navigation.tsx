@@ -10,7 +10,6 @@ import { useAudioStore } from "@/store/useAudioStore";
 const navItems = [
   { name: "Welcome", path: "/", icon: <Home size={20} /> },
   { name: "Family", path: "/directory", icon: <Users size={20} /> },
-  { name: "Memory Tunnel", path: "/tunnel", icon: <Camera size={20} /> },
   { name: "Signature Wall", path: "/signatures", icon: <Edit3 size={20} /> },
   { name: "Farewell Board", path: "/farewell", icon: <MessageSquare size={20} /> },
   { name: "Statistics", path: "/stats", icon: <BarChart size={20} /> },
@@ -18,6 +17,7 @@ const navItems = [
   { name: "Hall of Fame", path: "/fame", icon: <Trophy size={20} /> },
   { name: "Alumni Connect", path: "/alumni", icon: <Briefcase size={20} /> },
   { name: "Admin Dashboard", path: "/admin", icon: <Lock size={20} /> },
+  { name: "Signing Off 2026 🎓", path: "/ending", icon: <Camera size={20} /> },
 ];
 
 export default function Navigation() {

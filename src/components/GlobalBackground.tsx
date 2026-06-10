@@ -85,6 +85,8 @@ class Firecracker {
   }
 }
 
+import FloatingQuotes from "./FloatingQuotes";
+
 export default function GlobalBackground() {
   const pathname = usePathname();
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -153,12 +155,15 @@ export default function GlobalBackground() {
       <div 
         className="fixed inset-0 z-[-30] bg-cover bg-center bg-no-repeat transition-all duration-1000"
         style={{
-          backgroundImage: "url('/hero_background.png')",
+          backgroundImage: "url('/herobackground.png')",
           opacity: 0.6 // stronger opacity for clearer text visibility
         }}
       />
       {/* Gradient Dark Backdrop Overlay - adjusted so the background graphics are visible */}
+      <div className="fixed inset-0 z-[-25] bg-black/60 pointer-events-none" />
       <div className="fixed inset-0 z-[-25] bg-gradient-to-b from-black/60 via-black/80 to-black/95 pointer-events-none" />
+
+      {pathname !== "/" && <FloatingQuotes />}
 
       {/* Firecrackers Canvas overlay (subtle and gorgeous) */}
       <canvas

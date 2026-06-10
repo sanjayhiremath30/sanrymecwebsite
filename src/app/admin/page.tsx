@@ -4,8 +4,40 @@ import { useState, useEffect, useRef } from "react";
 import { useStudentStore } from "@/store/useStudentStore";
 import { useMemoryTunnelStore } from "@/store/useMemoryTunnelStore";
 import { Student } from "@/data/students";
-import { Trash2, Plus, UploadCloud, CheckCircle, Lock, Unlock } from "lucide-react";
+import { Trash2, Plus, UploadCloud, CheckCircle, Lock, Unlock, GraduationCap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+
+const FlyingCaps = () => {
+  return (
+    <div className="fixed inset-0 pointer-events-none z-[-10] overflow-hidden">
+      {Array.from({ length: 15 }).map((_, i) => (
+        <motion.div
+          key={i}
+          initial={{ 
+            y: "110vh", 
+            x: Math.random() * 100 + "vw",
+            rotate: Math.random() * 360,
+            opacity: 0.1 + Math.random() * 0.3
+          }}
+          animate={{ 
+            y: "-10vh",
+            rotate: Math.random() * 360,
+            opacity: [0, 0.4, 0]
+          }}
+          transition={{ 
+            duration: 10 + Math.random() * 15, 
+            repeat: Infinity, 
+            delay: Math.random() * 5,
+            ease: "linear"
+          }}
+          className="absolute text-purple-400/30"
+        >
+          <GraduationCap size={40 + Math.random() * 40} />
+        </motion.div>
+      ))}
+    </div>
+  );
+};
 
 export default function AdminPage() {
   const { students, init, add, delete: deleteStudent } = useStudentStore();
@@ -134,7 +166,7 @@ export default function AdminPage() {
 
   if (!isAdminAuth) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
+      <div className="min-h-screen bg-transparent text-white flex items-center justify-center px-4">
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -175,10 +207,13 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white px-4 py-20 md:px-12 lg:px-24">
-      <h1 className="text-4xl md:text-5xl font-black neon-text-purple tracking-wider mb-8">
-        ADMIN DASHBOARD
-      </h1>
+    <div className="min-h-screen bg-black text-white px-4 py-20 md:px-12 lg:px-24 relative overflow-hidden">
+      <FlyingCaps />
+      
+      <div className="relative z-10">
+        <h1 className="text-4xl md:text-5xl font-black neon-text-purple tracking-wider mb-8">
+          ADMIN DASHBOARD
+        </h1>
 
       {/* Tabs */}
       <div className="flex gap-4 mb-10 border-b border-white/10 pb-4">
@@ -569,6 +604,7 @@ export default function AdminPage() {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

@@ -103,14 +103,40 @@ export default function GrandEndingPage() {
               initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
               transition={{ duration: 3 }}
-              className="mt-12 space-y-8"
+              className="mt-12 space-y-8 flex flex-col items-center"
             >
               <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-600 neon-text-gold drop-shadow-2xl px-4 text-center">
                 THANK YOU FOR THE MEMORIES ❤️
               </h1>
-              <p className="text-xl md:text-3xl neon-text-purple font-bold tracking-[0.2em] text-purple-300">
-                FOREVER DRIMAC
+              <p className="text-xl md:text-3xl neon-text-purple font-bold tracking-[0.2em] text-purple-300 mb-8">
+                FOREVER RYMEC 2022 - 2026 batch
               </p>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2, duration: 2 }}
+                className="relative w-full max-w-4xl aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.2)] border border-white/10"
+              >
+                <Image
+                  src="/memories.jpg"
+                  alt="Best of Greatest College Memories"
+                  fill
+                  className="object-contain bg-black/50"
+                />
+              </motion.div>
+
+              {/* Credits below the image */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 4, duration: 2 }}
+                className="mt-8 text-center"
+              >
+                <p className="text-sm md:text-base text-zinc-500 font-medium tracking-widest uppercase">
+                  Website built by <span className="text-zinc-300 font-bold">SANJAY M</span>
+                </p>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>

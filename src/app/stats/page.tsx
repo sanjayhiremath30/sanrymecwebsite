@@ -56,7 +56,7 @@ export default function StatsPage() {
         <h1 className="text-4xl md:text-6xl font-black neon-text-blue tracking-wider mb-4">
           OUR JOURNEY IN NUMBERS
         </h1>
-        <p className="text-xl text-zinc-400 font-light tracking-widest">DRIMAC 2022-2026</p>
+        <p className="text-xl text-zinc-400 font-light tracking-widest">RYMEC 2022 - 2026 batch</p>
       </motion.div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 max-w-5xl mx-auto relative z-10 w-full">

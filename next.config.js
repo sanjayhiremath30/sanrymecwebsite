@@ -22,5 +22,6 @@ const nextConfig = {
     MONGODB_URI: process.env.MONGODB_URI,
   },
   turbopack: {},
+  devIndicators: false,
 };
 module.exports = nextConfig;

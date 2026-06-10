@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAudioStore } from "@/store/useAudioStore";
+import FloatingQuotes from "@/components/FloatingQuotes";
 
 export default function Home() {
   const [step, setStep] = useState(0);
@@ -47,7 +48,8 @@ export default function Home() {
                 className="object-cover opacity-40"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+              <div className="absolute inset-0 bg-black/60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
             </motion.div>
 
             {/* Content */}
@@ -94,6 +96,20 @@ export default function Home() {
             transition={{ duration: 1.5 }}
             className="absolute inset-0 flex flex-col items-center justify-center bg-black"
           >
+            {/* Background Image with shading */}
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/herobackground.png"
+                alt="Hero Background"
+                fill
+                className="object-cover opacity-20"
+                priority
+              />
+              <div className="absolute inset-0 bg-black/70" />
+            </div>
+
+            <FloatingQuotes />
+
             {/* Dynamic floating particles effect */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 flex justify-center items-center">
               <div className="w-[800px] h-[800px] bg-purple-900/20 rounded-full blur-[120px] animate-pulse" />
